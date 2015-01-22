@@ -69,7 +69,7 @@ public class DataService {
     }
     
     public ResultSet getSinglesDataMalePending(){
-        query = "select name, registration_no, status from singles natural join participant_details where sex='male' and status=0 ";
+        query = "select name, registration_no, status from singles natural join participant_details where sex='male' and status is not 1 ";
         result = databaseConnection.getResultset(query);
         return result;
     }
@@ -81,7 +81,7 @@ public class DataService {
     }
     
     public ResultSet getSinglesDataFemalePending(){
-        query = "select name, registration_no, status from singles natural join participant_details where sex='female' and status=0 ";
+        query = "select name, registration_no, status from singles natural join participant_details where sex='female' and status is not 1 ";
         result = databaseConnection.getResultset(query);
         return result;
     }
@@ -102,12 +102,12 @@ public class DataService {
     public ResultSet getDoublesDataMalePending(int test){
         
         if(test == 1){
-            query = "select name, registration_no from participant_details where registration_no in (select registration_no from doubles where sex='male' and status=0) ";
+            query = "select name, registration_no from participant_details where registration_no in (select registration_no from doubles where sex='male' and status is not 1) ";
             result = databaseConnection.getResultset(query);
             return result;
         }
         else {
-            query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from doubles where sex='male' and status=0) ";
+            query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from doubles where sex='male' and status is not 1) ";
             result = databaseConnection.getResultset(query);
             return result;
         }
@@ -130,12 +130,12 @@ public class DataService {
     public ResultSet getDoublesDataFemalePending(int test){
         
         if(test == 1){
-            query = "select name, registration_no from participant_details where registration_no in (select registration_no from doubles where sex='female' and status=0) ";
+            query = "select name, registration_no from participant_details where registration_no in (select registration_no from doubles where sex='female' and status is not 1) ";
             result = databaseConnection.getResultset(query);
             return result;
         }
         else {
-            query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from doubles where sex='female' and status=0) ";
+            query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from doubles where sex='female' and status is not 1) ";
             result = databaseConnection.getResultset(query);
             return result;
         }
@@ -158,12 +158,12 @@ public class DataService {
     public ResultSet getMixDoublesDataPending(int test){
         
         if(test == 1){
-            query = "select name, registration_no from participant_details where registration_no in (select registration_no from mix_doubles where status=0) ";
+            query = "select name, registration_no from participant_details where registration_no in (select registration_no from mix_doubles where status is not 1) ";
             result = databaseConnection.getResultset(query);
             return result;
         }
         else {
-            query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from mix_doubles where status=0) ";
+            query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from mix_doubles where status is not 1) ";
             result = databaseConnection.getResultset(query);
             return result;
         }

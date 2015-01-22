@@ -18,7 +18,7 @@ public class DataService {
     
     public DataService(){
         databaseConnection = new DatabaseConnection();
-        query = "select sex from badminton_db.singles";
+        /*query = "select sex from singles";
         result = databaseConnection.getResultset(query);
         try {
             if(result.next()){
@@ -26,11 +26,11 @@ public class DataService {
             }
         } catch (SQLException ex) {
             Logger.getLogger(DataService.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
     
     public void singlesDataInsert(String name, String reg_no, String phone_no, String sex){
-        query = "insert into badminton_db.singles(registration_no, sex) values('"+reg_no+"','"+sex+"') on duplicate key update registration_no=registration_no, sex=sex";
+        query = "insert into singles(registration_no, sex) values('"+reg_no+"','"+sex+"') on duplicate key update registration_no=registration_no, sex=sex";
         boolean res = databaseConnection.doDatabaseExecution(query);
         System.out.println(res);
         
@@ -41,7 +41,7 @@ public class DataService {
     
     
     public void doublesDataInsert(String name_lead, String reg_lead, String name, String reg, String phone_no, String sex){
-        query = "insert into badminton_db.doubles(registration_no, registration_no2, sex) values('"+reg_lead+"', '"+reg+"','"+sex+"') on duplicate key update registration_no=registration_no, registration_no2=registration_no2, sex=sex";
+        query = "insert into doubles(registration_no, registration_no2, sex) values('"+reg_lead+"', '"+reg+"','"+sex+"') on duplicate key update registration_no=registration_no, registration_no2=registration_no2, sex=sex";
         boolean res = databaseConnection.doDatabaseExecution(query);
         System.out.println(res);
         
@@ -52,7 +52,7 @@ public class DataService {
     }
     
     public void mixDoubleDataInsert(String name_lead, String reg_lead, String name, String reg, String phone_no){
-        query = "insert into badminton_db.mix_doubles(registration_no, registration_no2) values('"+reg_lead+"', '"+reg+"') on duplicate key update registration_no=registration_no, registration_no2=registration_no2";
+        query = "insert into mix_doubles(registration_no, registration_no2) values('"+reg_lead+"', '"+reg+"') on duplicate key update registration_no=registration_no, registration_no2=registration_no2";
         boolean res = databaseConnection.doDatabaseExecution(query);
         System.out.println(res);
         

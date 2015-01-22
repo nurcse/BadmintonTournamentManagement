@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Badmintor Tournament 15</title>
+        <title>Badminton Tournament 15</title>
 		<meta name="description" content="A baler course">
 		<meta name="author" content="Adi Purdila">
 		<!-- Mobile Specific Meta -->

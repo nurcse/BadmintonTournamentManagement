@@ -3,8 +3,13 @@
     Created on : Jan 21, 2015, 2:38:23 AM
     Author     : shahab uddin
 --%>
+<%@ page import="information.DataService" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.io.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import= "java.sql.ResultSet" %>
+<%@ page import= "java.sql.SQLException" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -49,8 +54,8 @@
 
 					<ul class="nav navbar-nav">
 						<li><a href="index.html">HOME</a></li>
-						<li><a href="registration.html">REGISTRATION</a></li>
-						<li><a href="teams.html">TEAMS</a></li>
+						<li><a href="registration.jsp">REGISTRATION</a></li>
+						<li><a href="teams.jsp">TEAMS</a></li>
 						<li><a href="#section-fixture">FIXTURE</a></li>
 					</ul>
 				</div> <!-- end collapse -->
@@ -62,7 +67,7 @@
 		<!-- Banner -->
 		<div class="jumbotron" style="padding-bottom:15px">
 			<div class="container text-center">
-				<b><h2 style="color:#20B2AA">SUST CSE BADMINTON TOURNAMENT '15</h2></b>
+                            <b><h2 style="color:#20B2AA">SUST CSE BADMINTON TOURNAMENT '15</h2></b>
 				<!-- <p>It's the official site for the tournament. Fixture and update will be given here, so focus on here.</p> -->
 				<!-- <div class="btn-grou1p">
 					<a href="#" class="btn btn-lg btn-success">Get Information</a>
@@ -70,7 +75,13 @@
 				</div> --> <!-- end btn-group -->
 			</div> <!-- end container -->
 		</div> <!-- end jumbotron -->
-
+                
+                <% 
+                    ResultSet result;
+                    ResultSet result2;
+                    DataService dataService = new DataService();
+                %>
+                
 		<div class="demo-area">
 			<div class="container">
 				<ul class="nav nav-tabs">
@@ -81,57 +92,77 @@
 
 				<div class="tab-content">
 					<div class="tab-pane fade in active" id="section-1" style="padding-top:20px">
-						<div class="panel panel-default">
+						<div class="panel panel-primary">
 							<div class="panel-heading">
 								<h4 class="panel-title">Single's(Male)</h4>
 							</div>
+                                                    <% 
+                                                        result = dataService.getSinglesDataMale();
+                                                    %>
 							<table class="table">
-								<tr>
-									<th>Name</th>
-									<th>Registration No.</th>
-									<th>Status</th>
-								</tr>
-								<tr>
-									<td>Rajesh</td>
-									<td>2013331063</td>
-									<td>Completed</td>
-								</tr>
-								<tr>
-									<td>Ozayer Islam</td>
-									<td>20133310</td>
-									<td>Completed</td>
-								</tr>
+                                                            <tr>
+								<th>Name</th>
+								<th>Registration No.</th>
+								<th>Status</th>
+                                                            </tr>
+                                                            <% while(result.next()){ %>
+                                                                <tr>
+                                                                    <td> <%= result.getString("name") %> </td>
+                                                                    <td> <%= result.getString("registration_no") %> </td>
+                                                                    <td> Completed </td>
+                                                                </tr> <% } %>
+                                                            <% 
+                                                                result = dataService.getSinglesDataMalePending();
+                                                            %>
+                                                            <% while(result.next()){ %>
+                                                                <tr>
+                                                                    <td> <%= result.getString("name") %> </td>
+                                                                    <td> <%= result.getString("registration_no") %> </td>
+                                                                    <td> Pending </td>
+                                                                </tr> <% } %>
 							</table>
 						</div>
 						<div class="panel panel-danger">
 							<div class="panel-heading">
 								<h4 class="panel-title">Single's(Female)</h4>
 							</div>
+                                                        <% 
+                                                        result = dataService.getSinglesDataFemale();
+                                                        %>
 							<table class="table">
-								<tr>
-									<th>Name</th>
-									<th>Registration No.</th>
-									<th>Status</th>
-								</tr>
-								<tr>
-									<td>Rajesh</td>
-									<td>2013331063</td>
-									<td>Completed</td>
-								</tr>
-								<tr>
-									<td>Ozayer Islam</td>
-									<td>20133310</td>
-									<td>Completed</td>
-								</tr>
+                                                            <tr>
+								<th>Name</th>
+								<th>Registration No.</th>
+								<th>Status</th>
+                                                            </tr>
+                                                            <% while(result.next()){ %>
+                                                                <tr>
+                                                                    <td> <%= result.getString("name") %> </td>
+                                                                    <td> <%= result.getString("registration_no") %> </td>
+                                                                    <td> Completed </td>
+                                                                </tr> <% } %>
+                                                            <% 
+                                                                result = dataService.getSinglesDataFemalePending();
+                                                            %>
+                                                            <% while(result.next()){ %>
+                                                                <tr>
+                                                                    <td> <%= result.getString("name") %> </td>
+                                                                    <td> <%= result.getString("registration_no") %> </td>
+                                                                    <td> Pending </td>
+                                                                </tr> <% } %>
 							</table>
 						</div>
 					</div>
 
 					<div class="tab-pane fade" id="section-2" style="padding-top:20px">
-						<div class="panel panel-success">
+						<div class="panel panel-primary">
 							<div class="panel-heading">
 								<h4 class="panel-title">Double's(Male)</h4>
 							</div>
+                                                    <% 
+                                                        result = dataService.getDoublesDataMale(1);
+                                                        result2 = dataService.getDoublesDataMale(0);
+                                                    %>
 							<table class="table">
 								<tr>
 									<th>Name(Team Lead)</th>
@@ -140,26 +171,36 @@
 									<th>Registration No.</th>
 									<th>Status</th>
 								</tr>
-								<tr>
-									<td>Rajesh</td>
-									<td>2013331063</td>
-									<td>Rajesh</td>
-									<td>20133310</td>
-									<td>Completed</td>
-								</tr>
-								<tr>
-									<td>Ozayer Islam</td>
-									<td>20133310</td>
-									<td>Rajesh</td>
-									<td>20133310</td>
-									<td>Completed</td>
-								</tr>
+                                                                <% while(result.next() && result2.next()){ %>
+                                                                <tr>
+                                                                    <td> <%= result.getString("name") %> </td>
+                                                                    <td> <%= result.getString("registration_no") %> </td>
+                                                                    <td> <%= result2.getString("name") %> </td>
+                                                                    <td> <%= result2.getString("registration_no") %> </td>
+                                                                    <td> Completed </td>
+                                                                </tr> <% } %>
+                                                    <% 
+                                                        result = dataService.getDoublesDataMalePending(1);
+                                                        result2 = dataService.getDoublesDataMalePending(0);
+                                                    %>
+                                                                <% while(result.next() && result2.next()){ %>
+                                                                <tr>
+                                                                    <td> <%= result.getString("name") %> </td>
+                                                                    <td> <%= result.getString("registration_no") %> </td>
+                                                                    <td> <%= result2.getString("name") %> </td>
+                                                                    <td> <%= result2.getString("registration_no") %> </td>
+                                                                    <td> Pending </td>
+                                                                </tr> <% } %>
 							</table>
 						</div>
 						<div class="panel panel-danger">
 							<div class="panel-heading">
 								<h4 class="panel-title">Double's(Female)</h4>
 							</div>
+                                                    <% 
+                                                        result = dataService.getDoublesDataFemale(1);
+                                                        result2 = dataService.getDoublesDataFemale(0);
+                                                    %>
 							<table class="table">
 								<tr>
 									<th>Name(Team Lead)</th>
@@ -168,20 +209,26 @@
 									<th>Registration No.</th>
 									<th>Status</th>
 								</tr>
-								<tr>
-									<td>Rajesh</td>
-									<td>2013331063</td>
-									<td>Rajesh</td>
-									<td>20133310</td>
-									<td>Completed</td>
-								</tr>
-								<tr>
-									<td>Ozayer Islam</td>
-									<td>20133310</td>
-									<td>Rajesh</td>
-									<td>20133310</td>
-									<td>Completed</td>
-								</tr>
+                                                                <% while(result.next() && result2.next()){ %>
+                                                                <tr>
+                                                                    <td> <%= result.getString("name") %> </td>
+                                                                    <td> <%= result.getString("registration_no") %> </td>
+                                                                    <td> <%= result2.getString("name") %> </td>
+                                                                    <td> <%= result2.getString("registration_no") %> </td>
+                                                                    <td> Completed </td>
+                                                                </tr> <% } %>
+                                                    <% 
+                                                        result = dataService.getDoublesDataFemalePending(1);
+                                                        result2 = dataService.getDoublesDataFemalePending(0);
+                                                    %>
+                                                                <% while(result.next() && result2.next()){ %>
+                                                                <tr>
+                                                                    <td> <%= result.getString("name") %> </td>
+                                                                    <td> <%= result.getString("registration_no") %> </td>
+                                                                    <td> <%= result2.getString("name") %> </td>
+                                                                    <td> <%= result2.getString("registration_no") %> </td>
+                                                                    <td> Pending </td>
+                                                                </tr> <% } %>
 							</table>
 						</div>
 					</div>
@@ -191,6 +238,10 @@
 							<div class="panel-heading">
 								<h4 class="panel-title">Mix-Double's</h4>
 							</div>
+                                                    <% 
+                                                        result = dataService.getMixDoublesData(1);
+                                                        result2 = dataService.getMixDoublesData(0);
+                                                    %>
 							<table class="table">
 								<tr>
 									<th>Name(Team Lead)</th>
@@ -199,20 +250,26 @@
 									<th>Registration No.</th>
 									<th>Status</th>
 								</tr>
-								<tr>
-									<td>Rajesh</td>
-									<td>2013331063</td>
-									<td>Rajesh</td>
-									<td>20133310</td>
-									<td>Completed</td>
-								</tr>
-								<tr>
-									<td>Ozayer Islam</td>
-									<td>20133310</td>
-									<td>Rajesh</td>
-									<td>20133310</td>
-									<td>Completed</td>
-								</tr>
+                                                                <% while(result.next() && result2.next()){ %>
+                                                                <tr>
+                                                                    <td> <%= result.getString("name") %> </td>
+                                                                    <td> <%= result.getString("registration_no") %> </td>
+                                                                    <td> <%= result2.getString("name") %> </td>
+                                                                    <td> <%= result2.getString("registration_no") %> </td>
+                                                                    <td> Completed </td>
+                                                                </tr> <% } %>
+                                                    <% 
+                                                        result = dataService.getMixDoublesDataPending(1);
+                                                        result2 = dataService.getMixDoublesDataPending(0);
+                                                    %>
+                                                                <% while(result.next() && result2.next()){ %>
+                                                                <tr>
+                                                                    <td> <%= result.getString("name") %> </td>
+                                                                    <td> <%= result.getString("registration_no") %> </td>
+                                                                    <td> <%= result2.getString("name") %> </td>
+                                                                    <td> <%= result2.getString("registration_no") %> </td>
+                                                                    <td> Pending </td>
+                                                                </tr> <% } %>
 							</table>
 						</div>
 					</div>

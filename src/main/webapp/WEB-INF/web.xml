@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<web-app version="3.0"
-         xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         metadata-complete="false">
-
-         
+<web-app metadata-complete="false" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>ParticipantInfoServlet</servlet-name>
+        <servlet-class>information.ParticipantInfoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DoublesInfoInsertServlet</servlet-name>
+        <servlet-class>information.DoublesInfoInsertServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MixDoubleInfoInsertServlet</servlet-name>
+        <servlet-class>information.MixDoubleInfoInsertServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ParticipantInfoServlet</servlet-name>
+        <url-pattern>/ParticipantInfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DoublesInfoInsertServlet</servlet-name>
+        <url-pattern>/DoublesInfoInsertServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MixDoubleInfoInsertServlet</servlet-name>
+        <url-pattern>/MixDoubleInfoInsertServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
-

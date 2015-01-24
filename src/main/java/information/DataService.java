@@ -89,11 +89,13 @@ public class DataService {
     public ResultSet getDoublesDataMale(int test){
         if(test == 1){
             query = "select name, registration_no from participant_details where registration_no in (select registration_no from doubles where sex='male' and status=1) ";
+            
             result = databaseConnection.getResultset(query);
             return result;
         }
         else {
-            query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from doubles where sex='male' and status=1) ";
+            //query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from doubles where sex='male' and status=1) ";
+            query = "SELECT name, registration_no2 FROM participant_details p JOIN doubles d ON p.registration_no = d.registration_no2 WHERE sex='male' AND STATUS=1 ";
             result = databaseConnection.getResultset(query);
             return result;
         }
@@ -107,7 +109,8 @@ public class DataService {
             return result;
         }
         else {
-            query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from doubles where sex='male' and status <> 1) ";
+            //query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from doubles where sex='male' and status <> 1) ";
+            query = "SELECT name, registration_no2 FROM participant_details p JOIN doubles d ON p.registration_no = d.registration_no2 WHERE sex='male' AND STATUS <> 1 ";
             result = databaseConnection.getResultset(query);
             return result;
         }
@@ -121,7 +124,8 @@ public class DataService {
             return result;
         }
         else {
-            query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from doubles where sex='female' and status=1) ";
+            //query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from doubles where sex='female' and status=1) ";
+            query = "SELECT name, registration_no2 FROM participant_details p JOIN doubles d ON p.registration_no = d.registration_no2 WHERE sex='female' AND STATUS=1 ";
             result = databaseConnection.getResultset(query);
             return result;
         }
@@ -135,7 +139,8 @@ public class DataService {
             return result;
         }
         else {
-            query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from doubles where sex='female' and status <> 1) ";
+            //query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from doubles where sex='female' and status <> 1) ";
+            query = "SELECT name, registration_no2 FROM participant_details p JOIN doubles d ON p.registration_no = d.registration_no2 WHERE sex='female' AND STATUS <> 1 ";
             result = databaseConnection.getResultset(query);
             return result;
         }
@@ -149,7 +154,8 @@ public class DataService {
             return result;
         }
         else {
-            query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from mix_doubles where status=1) ";
+            //query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from mix_doubles where status=1) ";
+            query = "SELECT name, registration_no2 FROM participant_details p JOIN mix_doubles d ON p.registration_no = d.registration_no2 WHERE STATUS=1 ";
             result = databaseConnection.getResultset(query);
             return result;
         }
@@ -163,7 +169,8 @@ public class DataService {
             return result;
         }
         else {
-            query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from mix_doubles where status <> 1) ";
+            //query = "select name, registration_no from participant_details where registration_no in (select registration_no2 from mix_doubles where status <> 1) ";
+            query = "SELECT name, registration_no2 FROM participant_details p JOIN mix_doubles d ON p.registration_no = d.registration_no2 WHERE STATUS <> 1 ";
             result = databaseConnection.getResultset(query);
             return result;
         }

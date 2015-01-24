@@ -176,7 +176,7 @@
                                                                     <td> <%= result.getString("name") %> </td>
                                                                     <td> <%= result.getString("registration_no") %> </td>
                                                                     <td> <%= result2.getString("name") %> </td>
-                                                                    <td> <%= result2.getString("registration_no") %> </td>
+                                                                    <td> <%= result2.getString("registration_no2") %> </td>
                                                                     <td> Completed </td>
                                                                 </tr> <% } %>
                                                     <% 
@@ -188,7 +188,7 @@
                                                                     <td> <%= result.getString("name") %> </td>
                                                                     <td> <%= result.getString("registration_no") %> </td>
                                                                     <td> <%= result2.getString("name") %> </td>
-                                                                    <td> <%= result2.getString("registration_no") %> </td>
+                                                                    <td> <%= result2.getString("registration_no2") %> </td>
                                                                     <td> Pending </td>
                                                                 </tr> <% } %>
 							</table>
@@ -214,7 +214,7 @@
                                                                     <td> <%= result.getString("name") %> </td>
                                                                     <td> <%= result.getString("registration_no") %> </td>
                                                                     <td> <%= result2.getString("name") %> </td>
-                                                                    <td> <%= result2.getString("registration_no") %> </td>
+                                                                    <td> <%= result2.getString("registration_no2") %> </td>
                                                                     <td> Completed </td>
                                                                 </tr> <% } %>
                                                     <% 
@@ -226,7 +226,7 @@
                                                                     <td> <%= result.getString("name") %> </td>
                                                                     <td> <%= result.getString("registration_no") %> </td>
                                                                     <td> <%= result2.getString("name") %> </td>
-                                                                    <td> <%= result2.getString("registration_no") %> </td>
+                                                                    <td> <%= result2.getString("registration_no2") %> </td>
                                                                     <td> Pending </td>
                                                                 </tr> <% } %>
 							</table>
@@ -255,7 +255,7 @@
                                                                     <td> <%= result.getString("name") %> </td>
                                                                     <td> <%= result.getString("registration_no") %> </td>
                                                                     <td> <%= result2.getString("name") %> </td>
-                                                                    <td> <%= result2.getString("registration_no") %> </td>
+                                                                    <td> <%= result2.getString("registration_no2") %> </td>
                                                                     <td> Completed </td>
                                                                 </tr> <% } %>
                                                     <% 
@@ -267,7 +267,7 @@
                                                                     <td> <%= result.getString("name") %> </td>
                                                                     <td> <%= result.getString("registration_no") %> </td>
                                                                     <td> <%= result2.getString("name") %> </td>
-                                                                    <td> <%= result2.getString("registration_no") %> </td>
+                                                                    <td> <%= result2.getString("registration_no2") %> </td>
                                                                     <td> Pending </td>
                                                                 </tr> <% } %>
 							</table>

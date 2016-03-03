@@ -26,6 +26,7 @@ public class DatabaseConnection {
     public DatabaseConnection(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
+            //conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/badminton_db", "root", "") ;
             conn = DriverManager.getConnection("jdbc:mysql://127.13.100.2:3306/sustcsebadminton", "adminA2bmInG", "jpDYXDGYaNa8");
             System.out.println("database connected");
         }catch(ClassNotFoundException e){

@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Badminton Tournament 15</title>
+        <title>Badminton Tournament 16</title>
 		<meta name="description" content="A baler course">
 		<meta name="author" content="Adi Purdila">
 		<!-- Mobile Specific Meta -->
@@ -62,7 +62,7 @@
 		<!-- Banner -->
 		<div class="jumbotron" style="padding-bottom:15px">
 			<div class="container text-center">
-                            <b><h2 style="color:#20B2AA">SUST CSE BADMINTON TOURNAMENT '15</h2></b>
+                            <b><h2 style="color:#20B2AA">SUST CSE BADMINTON TOURNAMENT '16</h2></b>
 				<!-- <p>It's the official site for the tournament. Fixture and update will be given here, so focus on here.</p> -->
 				<!-- <div class="btn-grou1p">
 					<a href="#" class="btn btn-lg btn-success">Get Information</a>

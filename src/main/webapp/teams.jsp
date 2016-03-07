@@ -15,8 +15,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Badminton Tournament 16</title>
-		<meta name="description" content="A baler course">
-		<meta name="author" content="Adi Purdila">
+		<meta name="description" content="Sports: BadMinToN">
+		<meta name="author" content="Nur Uddin">
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
 		<!-- Latest compiled and minified CSS -->
